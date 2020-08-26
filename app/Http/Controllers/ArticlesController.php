@@ -19,8 +19,15 @@ class ArticlesController extends Controller
         //$articles = Article::all()->piginate(5);
         //$articles = DB::table('articles')->paginate(5);
         $articles = Article::paginate(5);
-
         return view('articles.index', compact('articles'));
+
+        // $edit = Edit::findOrFail(1); // comment có id = 1 có user_id = 1
+        // if (Gate::allows('edit articles', $edit)) {
+        //     return view('articles.edit', compact('articles'));
+        // } else {
+        //     echo "Ban khong co quyen chinh sua bài viết";
+        // }
+
     }
     public function show($id)
     {
@@ -45,9 +52,11 @@ class ArticlesController extends Controller
     {
         $title = $request->input('title');
         $content = $request->input('content');
+        $img = $request->input('img');
         Article::create([
             'title' => $title,
             'content' => $content,
+            'img' => $img,
         ]);
         return redirect()->route('articles.index'); /* chuyển hướng đến route index */
     }
@@ -83,6 +92,7 @@ class ArticlesController extends Controller
         $article->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'img' => $request->input('img'),
         ]);
         return redirect()->route("baiviet", $id);
     }
@@ -98,4 +108,4 @@ class ArticlesController extends Controller
         $article->delete();
         return redirect()->route('articles.index');
     }
-}
+};

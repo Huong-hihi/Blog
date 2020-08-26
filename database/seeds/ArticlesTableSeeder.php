@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
-use App\Articlea;
+
 class ArticlesTableSeeder extends Seeder
 {
     /**
@@ -12,15 +11,20 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
+        factory(\App\Article::class, 10)->create();
 
-        $limit = 20;
+        //     $faker = Faker\Factory::create();
 
-        for ($i = 0; $i < $limit; $i++) {
-            DB::table('articles')->insert([
-                'title' => $faker->title,
-                'content' => $faker->text(225),
-            ]);
-        }
+        //     $limit = 10;
+
+        //     for ($i = 0; $i < $limit; $i++) {
+        //         DB::table('articles')->insert([
+        //             'title' => $faker->title,
+        //             'content' => $faker->text(225),
+        //         ])->afterCreating(\App\Models\Article::class, function (\App\Models\Aricle $article, Faker $faker) {
+        //             $article->img = $article->id . '.jpg';
+        //             $article->save();
+        //         });
+        //     }
     }
 }

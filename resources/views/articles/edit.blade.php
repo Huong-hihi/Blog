@@ -5,10 +5,10 @@
 @section('body.content')
      <div class="container">
          <h3> Cập nhật bài viết</h3>
-     <form action="{{route('articles.update',$article->id)}}" class="was-validated" method="POST">
+     <form action="{{route('articles.update',$article->id)}}"  method="POST">
      <input type="hidden" name="_token" value="{{csrf_token()}}">
      <div class="container col-md-8" style="background :grey; width: 500px;">
-        <div class="form-group">
+         <div class="form-group">
             <label for='title'>Tiêu đề bài viết :</label>
         <input type="text" class="form-control" id="title" name="title" value="{{$article->title}}">
             <div class="valid-feedback">Hợp lệ :v</div>
@@ -20,7 +20,11 @@
             <div class="valid-feedback">Hợp lệ :v</div>
             <div class="invalid-feedback">bạn chưa nhập Nội dung</div>
         </div>
-        <div class=" btn-sm col-sm-2">
+        <div class="form-group">
+         <label for="img" class="col-md-2 col-form-label">Ảnh :</label>
+        <input id="img" type="file" name="img">
+    </div>
+    <div class=" btn-sm col-sm-2">
             <button type="submit" class="btn-outline-success" >Update</button>
         </div>
     </div>

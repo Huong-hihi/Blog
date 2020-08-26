@@ -7,8 +7,7 @@
                     <div class="card">
                        <div class="row">
                         <div class="col-md-2">
-                            <div class="card-header"> <img class="card-img-bottom"src="https://dotobjyajpegd.cloudfront.net/photo/5d3a66f962710e25dc99ffa3" width="200px" height="100px">
-                              </div>
+                            <div class="card-img-top"><img style="width: 130px; height: 140px;" src="/storage/article_img/{{$item->img}}"></div>
                         </div>
                        <div class="col-md-8">
                        <div class="card-title"> <h5>{{$item->title}}</h5></div>
@@ -17,7 +16,6 @@
                        </div>
             </div>
      </div> 
-  
 @endforeach
   <br><br>
  {!!$articles->render()!!}

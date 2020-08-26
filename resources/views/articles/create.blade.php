@@ -5,7 +5,7 @@
 @section('body.content')
      <div class="container">
          <h3> Hãy Nhập Nội Dung Bài Viết Muốn Thêm!</h3>
-     <form action="{{route('articles.store')}}" method="POST" class="was-validated">
+     <form action="{{route('articles.store')}}" method="POST">
      <input type="hidden" name="_token" value="{{csrf_token()}}">
      <div class="container col-md-8" style="background:grey; width: 500px;">
         @include('articles.form')
